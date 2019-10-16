@@ -39,8 +39,8 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT (example)"
-  # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  # spec.license      = "MIT (example)"
+  spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -68,7 +68,7 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "9.0"
 
   #  When using multiple platforms
-  # spec.ios.deployment_target = "5.0"
+  spec.ios.deployment_target = "9.0"
   # spec.osx.deployment_target = "10.7"
   # spec.watchos.deployment_target = "2.0"
   # spec.tvos.deployment_target = "9.0"
@@ -91,7 +91,14 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "ModuleA", "ModuleA/**/*.{h,m}"
+  # spec.subspec 'ViewController' do |ss|
+  # ss.source_files = 'ModuleA/ViewController/**/*'
+  # ss.public_header_files = 'ModuleA/ViewController/*.h'
+  # ss.frameworks = 'Foundation','UIKit'
+  # end
+
+
+  spec.source_files  = "Classes/**/*.{h,m}"
   # spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
@@ -107,7 +114,7 @@ Pod::Spec.new do |spec|
 
   # spec.resource  = "icon.png"
   #图片文件路径
-  spec.resources = "ModuleA/Resources/*.png"
+  spec.resources = "Resources/*.png"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
