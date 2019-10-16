@@ -17,7 +17,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "ModuleA"  #库名称 
   spec.version      = "0.0.1" #库版本号  每次发布版本都需要打tag标签（名称就是版本号）
-  spec.summary      = "A short description of ModuleA."  #pod简介
+  spec.summary      = " ModuleA  组件测试路由"  #pod简介
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -27,6 +27,8 @@ Pod::Spec.new do |spec|
   #详细描述
   spec.description  = <<-DESC
                    这是组件A
+                   summary: The summary is not meaningful.
+                   summary: The summary is not meaningful.
                    DESC
 
 
@@ -145,7 +147,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.framework  = "SomeFramework"
-  spec.frameworks = "UIKit", "Appkit",'Foundation'
+  spec.frameworks = "UIKit",'Foundation'
 
 
   # spec.library   = "iconv"
