@@ -15,19 +15,22 @@ Pod::Spec.new do |spec|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  spec.name         = "ModuleA"
-  spec.version      = "0.0.1"
-  spec.summary      = "A short description of ModuleA."
+  spec.name         = "ModuleA"  #库名称 
+  spec.version      = "0.0.1" #库版本号  每次发布版本都需要打tag标签（名称就是版本号）
+  spec.summary      = "A short description of ModuleA."  #pod简介
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
+  #详细描述
   spec.description  = <<-DESC
                    这是组件A
                    DESC
 
+
+  #pod主页
   spec.homepage     = "https://github.com/guangjianzhou/ModuleAProject"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
@@ -39,6 +42,8 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
+
+  #许可证，除非源代码包含了LICENSE.*或者LICENCE.*文件，否则必须指定许可证文件。文件扩展名可以没有，或者是.txt,.md,.markdown
   # spec.license      = "MIT (example)"
   spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
@@ -53,6 +58,7 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
+  #pod 库维护着的名称和名称
   spec.author             = { "zgj6406401" => "zgj6406401@163.com" }
   # Or just: spec.author    = "zgj6406401"
   # spec.authors            = { "zgj6406401" => "zgj6406401@163.com" }
@@ -80,6 +86,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
+  #获取库的地址
   spec.source       = { :git => "https://github.com/guangjianzhou/ModuleAProject.git", :tag => "#{spec.version}" }
 
 
@@ -91,18 +98,30 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  # spec.subspec 'ViewController' do |ss|
-  # ss.source_files = 'ModuleA/ViewController/**/*'
-  # ss.public_header_files = 'ModuleA/ViewController/*.h'
-  # ss.frameworks = 'Foundation','UIKit'
-  # end
+  
 
+  #pod文件路径
 
   spec.source_files  = "Classes/**/*.{h,m}"
   # spec.exclude_files = "Classes/Exclude"
 
+
+  #公共头文件,这些头文件将暴露给用户的项目。如果不设置，所有source_files的头文件将被暴露
   # spec.public_header_files = "Classes/**/*.h"
 
+
+
+  spec.subspec 'CustomView' do |ss|
+  ss.source_files = 'Classes/CustomView/*'   #指定子模块路径
+  ss.public_header_files = 'Classes/CustomView/*.h'
+  end
+
+  spec.subspec 'ViewController' do |ss|
+  ss.source_files = 'Classes/ViewController/*'
+  ss.public_header_files = 'Classes/ViewController/*.h'
+  ss.frameworks = 'Foundation','UIKit'
+  ss.dependency 'ModuleA/CustomView'  #vc依赖
+  end
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -114,7 +133,7 @@ Pod::Spec.new do |spec|
 
   # spec.resource  = "icon.png"
   #图片文件路径
-  spec.resources = "Resources/*.png"
+  spec.resources = "Classes/Resources/*.png"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
@@ -143,6 +162,7 @@ Pod::Spec.new do |spec|
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
+
   #依赖库
   spec.dependency "SVProgressHUD"
   spec.dependency "SDWebImage"
