@@ -89,7 +89,7 @@ Pod::Spec.new do |spec|
   #
 
   #获取库的地址
-  spec.source       = { :git => "https://github.com/guangjianzhou/ModuleAProject.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/guangjianzhou/ModuleAProject.git", :tag => "v"+"#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
