@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "CustomView/CustomModuleAView.h"
+#import "CustomModuleAView.h"
 
 @interface ViewController ()
 
